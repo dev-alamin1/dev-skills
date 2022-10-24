@@ -11,8 +11,8 @@ const Main = () => {
             | Shared Component are Navbar and Footer 
             |----------------------------------------
             */}
-            
-            <Navbar/>
+
+            <Navbar />
             <Outlet/>
             <Footer/>
         </div>
