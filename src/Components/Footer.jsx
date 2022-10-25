@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { AuthContext } from '../Context/Authprovider';
 
 const Footer = () => {
+
     return (
         <div>
+
             <footer className="footer p-10 bg-base-200 text-base-content px-10 md:px-20">
                 <div>
                     <span className="footer-title">Services</span> 
