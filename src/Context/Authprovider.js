@@ -2,6 +2,7 @@
  // import from firebase 
  import {
          getAuth,signInWithPopup,GoogleAuthProvider,
+         updateProfile,GithubAuthProvider
  } from 'firebase/auth'
 
  import app from '../Firebase/Frirsebase.config';
@@ -16,14 +17,33 @@
  const Authprovider = ({children}) => {
  const [user,setUser] = useState({});
     
-//1.singIn with google provieder 
+ //1.singIn with google provieder 
  const googleProvider = new GoogleAuthProvider();
- const loginWithGoogle = ()=>{
+ const registerWithGoogle = ()=>{
     return signInWithPopup(auth,googleProvider);
  }
+
+ //2. register with Github 
+ const githubProvider = new GithubAuthProvider();
+
+ const registerWithGithub = ()=>
+ {
+    return signInWithPopup(auth,githubProvider);
+ }
+
+//  //2.update user name and imga url when register /sign up  success
+//  const updateUserProfileNameAndImgUrl  = (name,photoURL)=>{
+//        return updateProfile(auth.currentUser,{
+//         displayName:name,photoURL:photoURL
+//       });
+//  }
+  
     
 
- const authInfo = {user,loginWithGoogle};
+ const authInfo = {user,registerWithGoogle,
+                 
+                  registerWithGithub
+                  };
     return (
         <AuthContext.Provider value={authInfo}>
 

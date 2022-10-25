@@ -162,24 +162,43 @@
     */
 
     // Auth data receive from AuthContext api [ Authprovide.js file ]
-    const {loginWithGoogle} = useContext(AuthContext);
+    const {
+           registerWithGoogle,
+           updateUserProfileNameAndImgUrl,
+           registerWithGithub
+        } = useContext(AuthContext);
 
     // 1. google provider login 
 
     const googleLoginHandler = ()=>{
         
-        loginWithGoogle()
+        registerWithGoogle()
           .then(result=>{
-                 const logUser = result.user;
-                 toast.success("Register succees");
-
+                 toast.success("User Register Success ")
           })
           .catch(error=>{
-            console.error(error.message)
+              setError({...error,generalError:error.message});
           })
 
         //loginWithGoogle = singInWithPopUp ( which is firebase method)
         // loginWithGoogle return promise 
+    }
+
+
+    // 2. gihub register user create 
+
+    const githubHandler = ()=>{
+        
+        registerWithGithub()
+          .then(result=>{
+                 toast.success("User Register Success ")
+          })
+          .catch(error=>{
+              setError({...error,generalError:error.message});
+          })
+
+        // registerWithGithub = singInWithPopUp ( which is firebase method)
+        // registerWithGithub return promise 
     }
 
 
@@ -254,6 +273,11 @@
                                 <p className="label-text-alt link text-red-400 link-hover">{error.passwordMatchError}</p>
                        </label>}
 
+                       {error.generalError && 
+                       <label className="label">
+                                <p className="label-text-alt link text-red-400 font-bold link-hover">{error.generalError}</p>
+                       </label>}
+
                    </div>
 
                    <div className="form-control mt-3 mb-2">
@@ -271,7 +295,7 @@
                          </div>
 
                          <div className='w-1/2  bg-slate-400 text-center rounded-md text-white hover:bg-slate-500'>
-                             <button className='py-2'>Sign Up with Github</button>
+                             <button onClick={githubHandler} className='py-2'>Sign Up with Github</button>
                          </div>
                     </div>
 
