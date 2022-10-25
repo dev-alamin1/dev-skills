@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+    import React, { useState } from 'react';
+    import { Link } from 'react-router-dom';
 
-const Register = () => {
+    const Register = () => {
     /*
     |-------------------------------------------------------------------------
     | email, password and confirm password validation when user try to register
@@ -23,10 +23,10 @@ const Register = () => {
         passwordMatch: "",
         generalError:""
     });
-
+    
     /*
     |-----------------------
-    | email handler 
+    | Email error handler 
     | ----------------------
     */
 
@@ -44,6 +44,59 @@ const Register = () => {
          }
     }
 
+     /*
+    |-----------------------
+    | Password error hanlder
+    | ----------------------
+    */
+
+    const passwordHandler = (e)=>{
+        const password = e.target.value;
+        const capitalLetterError = /(?=.*[A-Z])/.test(password);
+        const specialCharacterError = /(?=.*[!@#$%^&*()+=-\?;,./{}|\":<>\[\]\\\' ~_])/.test(password);
+
+        if(password.length <6 )
+        {
+            setError({...error, password:"Password at lest 6 characters length "})
+            setUserInfo({...userInfo, password:""});
+
+        }else if(!capitalLetterError){
+
+            setError({...error, password:"Password at lest one capital letter "})
+            setUserInfo({...userInfo, password:""});
+        }
+        else if(!specialCharacterError){
+
+            setError({...error, password:"Password at lest one special character "})
+            setUserInfo({...userInfo, password:""});
+        }else{
+            setError({...error,password:""});
+            setUserInfo({...userInfo,password:password});
+        }        
+        }
+
+        /*
+    |--------------------------------
+    | Confirm Password error hanlder
+    | -------------------------------
+    */
+
+    const confirmPasswordHandler =(e)=>{
+         const passord = userInfo.password;
+         const confirmPassword = e.target.value;
+         
+         if(!(passord === confirmPassword))
+         {
+            setError({...error,passwordMatch:"Password does not match"});
+            // setUserInfo({...userInfo,password:""})
+         }else{
+            setError({...error,passwordMatch:""});
+            setUserInfo({...userInfo,password:passord})
+         }
+
+        }
+
+
 
 
     return (
@@ -60,7 +113,7 @@ const Register = () => {
                        <label className="label">
                            <span className="label-text">Name</span>
                        </label>
-                       <input type="text" placeholder="your full name" className="input input-bordered" />
+                       <input type="text" onChange={nameHandler} name="name" placeholder="your full name" className="input input-bordered" />
                    </div>
 
                    <div className="form-control">
@@ -86,7 +139,27 @@ const Register = () => {
                            <span className="label-text">Password</span>
                        </label>
 
-                       <input type="text" placeholder="password" className="input input-bordered" />
+                       <input type="password" onChange={passwordHandler} placeholder="password" name='password' className="input input-bordered" />
+
+                       {error.password && 
+                       <label className="label">
+                                <p className="label-text-alt link text-red-400 link-hover">{error.password}</p>
+                       </label>}
+
+                   </div>
+
+                   <div className="form-control">
+                       <label className="label">
+                           <span className="label-text">Confirm Password</span>
+                       </label>
+                       <input type="password" onChange={confirmPasswordHandler} placeholder="confirm password" name='confirmPassword' className="input input-bordered" />
+
+                       
+                       {error.passwordMatch && 
+                       <label className="label">
+                                <p className="label-text-alt link text-red-400 link-hover">{error.passwordMatch}</p>
+                       </label>}
+
                    </div>
 
                    <div className="form-control mt-3 mb-2">
