@@ -1,7 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../Context/Authprovider';
 
 const Login = () => {
+
+  
     return (
         <div className='py-5'>
              <div className='flex justify-center  md:py-10  border-red-300 px-10'>

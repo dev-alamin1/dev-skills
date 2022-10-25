@@ -1,5 +1,7 @@
-    import React, { useState } from 'react';
+    import React, { useContext, useState } from 'react';
     import { Link } from 'react-router-dom';
+    import { AuthContext } from '../../Context/Authprovider';
+    import toast from 'react-hot-toast';
 
     const Register = () => {
     /*
@@ -159,10 +161,25 @@
     | ------------------------------------------------------------------------
     */
 
-    const submitHandler = (event)=>{
-        event.preventDefault();
-        
+    // Auth data receive from AuthContext api [ Authprovide.js file ]
+    const {loginWithGoogle} = useContext(AuthContext);
 
+    // 1. google provider login 
+
+    const googleLoginHandler = ()=>{
+        
+        loginWithGoogle()
+          .then(result=>{
+                 const logUser = result.user;
+                 toast.success("Register succees");
+
+          })
+          .catch(error=>{
+            console.error(error.message)
+          })
+
+        //loginWithGoogle = singInWithPopUp ( which is firebase method)
+        // loginWithGoogle return promise 
     }
 
 
@@ -175,7 +192,7 @@
 
                 {/* login form start */}
 
-                 <form onSubmit={submitHandler}>
+                 <form >
                    <div className="form-control">
                        <label className="label">
                            <span className="label-text">Name</span>
@@ -250,11 +267,11 @@
                     <div className='flex gap-2'>
 
                          <div className='w-1/2 bg-slate-400 text-center rounded-md text-white hover:bg-slate-500'>
-                             <button className='py-2 '>Google Login</button>
+                             <button onClick={googleLoginHandler} className='py-2 '>Sign Up With Google</button>
                          </div>
 
                          <div className='w-1/2  bg-slate-400 text-center rounded-md text-white hover:bg-slate-500'>
-                             <button className='py-2'>Github Login</button>
+                             <button className='py-2'>Sign Up with Github</button>
                          </div>
                     </div>
 
