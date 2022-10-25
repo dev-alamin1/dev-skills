@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const Navbar = () => {
     return (
         <div>
-             <div className="navbar bg-base-300 px-5 md:px-20">
+             <div className="navbar bg-base-100 px-5 md:px-20">
                     {/* 
                     |------------------------------
                     | Navbar Start (Left Side)
@@ -21,8 +21,8 @@ const Navbar = () => {
                              </ul>
                        </div>
                      <div className='hidden md:flex items-center gap-1'>
-                         <img src="dev-logo.png" alt="" className='w-12 h-10'/>
-                         <Link className="text-2xl font-bold text-orange-400">Skill</Link>
+                         <Link to="/" ><img src="dev-logo.png" alt="" className='w-16 h-10'/></Link>
+                         <Link to="/" className="text-2xl font-bold text-orange-400 font-[Poppins]">Skill</Link>
                     </div>
                </div>
  
@@ -35,8 +35,8 @@ const Navbar = () => {
 
                <div className="navbar-center">
                    <div className='flex items-center gap-1 md:hidden ml-10'>
-                         <img src="dev-logo.png" alt="" className='w-12 h-10'/>
-                         <Link className=" text-2xl font-bold text-orange-400">Skill</Link>
+                         <Link to="/" ><img src="dev-logo.png" alt="" className='w-16 h-10'/></Link>
+                         <Link to="/" className="text-2xl font-bold text-orange-400">Skill</Link>
                     </div>
                 </div>
 
