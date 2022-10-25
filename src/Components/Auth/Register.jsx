@@ -4,26 +4,70 @@
     const Register = () => {
     /*
     |-------------------------------------------------------------------------
-    | email, password and confirm password validation when user try to register
-    | -------------------------------------------------------------------------
+    | name, imgURL , email, password and confirm password validation start
+    | ------------------------------------------------------------------------
     */
 
     const [userInfo,setUserInfo] = useState(
         {   
             name:"",
-            imgeUrl:"",
+            imgUrl:"",
             email:"",
             password:""
          }
         );
 
     const [error,setError] = useState({
-        email:"",
-        password:"",
-        passwordMatch: "",
+        nameError:"",
+        imgUrlError: "",
+        emailError:"",
+        passwordError:"",
+        passwordMatchError: "",
         generalError:""
     });
     
+    /*
+    |------------------------
+    | User name Error handler
+    | -----------------------
+    */
+
+    const nameHandler = (e)=>{
+        const name = e.target.value;
+
+        if(name === '')
+        {
+            setError({...error,nameError:"Name must not be empty "});
+            setUserInfo({...userInfo,name:""});
+        }
+         else if(name.length<4)
+        {
+            setError({...error,nameError:"Please enter your name at lest 4 character  "});
+            setUserInfo({...userInfo,name:""});
+        }else{
+            setError({...error,nameError:""});
+            setUserInfo({...userInfo,name:name});
+        }
+    }
+
+    /*
+    |-----------------------
+    | Imge url error handler 
+    | ----------------------
+    */
+
+    const imgUrlHandler = (e)=>{
+        const imgUrl = e.target.value;
+        if(imgUrl === "")
+        {
+            setError({...error,imgUrlError:"Please provide a image link "});
+            setUserInfo({...userInfo,imgUrl:""});
+        }else{
+            setError({...error,imgUrlError:""});
+            setUserInfo({...userInfo,imgUrl:imgUrl});
+        }
+    }
+
     /*
     |-----------------------
     | Email error handler 
@@ -34,12 +78,17 @@
          const email = e.target.value;
          const regx = /^[a-z0-9][a-z0-9-_\.]+@([a-z]|[a-z0-9]?[a-z0-9-]+[a-z0-9])\.[a-z0-9]{2,10}(?:\.[a-z]{2,10})?$/;
 
-         if(!email.match(regx))
+         if(email === '')
          {
-            setError({...error,email:"Please provide a valid email "});
+            setError({...error,emailError:"Email must not be empty"});
+            setUserInfo({...userInfo,email:""});
+         }
+         else if(!email.match(regx))
+         {
+            setError({...error,emailError:"Please provide a valid email "});
             setUserInfo({...userInfo,email:""});
          }else{
-            setError({...error,email:""});
+            setError({...error,emailError:""});
             setUserInfo({...userInfo,email:email});
          }
     }
@@ -55,22 +104,27 @@
         const capitalLetterError = /(?=.*[A-Z])/.test(password);
         const specialCharacterError = /(?=.*[!@#$%^&*()+=-\?;,./{}|\":<>\[\]\\\' ~_])/.test(password);
 
-        if(password.length <6 )
+        if(password === "")
         {
-            setError({...error, password:"Password at lest 6 characters length "})
+            setError({...error, passwordError:"Password must not be empty "})
+            setUserInfo({...userInfo, password:""});
+        }
+        else if(password.length <6 )
+        {
+            setError({...error, passwordError:"Password at lest 6 characters length "})
             setUserInfo({...userInfo, password:""});
 
         }else if(!capitalLetterError){
 
-            setError({...error, password:"Password at lest one capital letter "})
+            setError({...error, passwordError:"Password at lest one capital letter "})
             setUserInfo({...userInfo, password:""});
         }
         else if(!specialCharacterError){
 
-            setError({...error, password:"Password at lest one special character "})
+            setError({...error, passwordError:"Password at lest one special character "})
             setUserInfo({...userInfo, password:""});
         }else{
-            setError({...error,password:""});
+            setError({...error,passwordError:""});
             setUserInfo({...userInfo,password:password});
         }        
         }
@@ -85,52 +139,75 @@
          const passord = userInfo.password;
          const confirmPassword = e.target.value;
          
-         if(!(passord === confirmPassword))
+         if(confirmPassword === ""){
+            setError({...error,passwordMatchError:"Confirm password must not be empty "});
+         }
+         else if(!(passord === confirmPassword))
          {
-            setError({...error,passwordMatch:"Password does not match"});
+            setError({...error,passwordMatchError:"Password does not match"});
             // setUserInfo({...userInfo,password:""})
          }else{
-            setError({...error,passwordMatch:""});
+            setError({...error,passwordMatchError:""});
             setUserInfo({...userInfo,password:passord})
          }
 
         }
 
+    /*
+    |-------------------------------------------------------------------------
+    | name, imgURL , email, password and confirm password validation End
+    | ------------------------------------------------------------------------
+    */
 
+    const submitHandler = (event)=>{
+        event.preventDefault();
+        
+
+    }
 
 
     return (
-        <div className='py-14'>
+        <div className='pb-14 '>
         <div className='flex justify-center border-red-300 px-10'>
            
            <div className='w-full md:w-2/5'>
-              <div className="card-body md:w-96  md:ml-40">
+              <div className="card-body md:w-96  md:ml-40 shadow-lg">
 
                 {/* login form start */}
 
-                 <form className=''>
+                 <form onSubmit={submitHandler}>
                    <div className="form-control">
                        <label className="label">
                            <span className="label-text">Name</span>
                        </label>
-                       <input type="text" onChange={nameHandler} name="name" placeholder="your full name" className="input input-bordered" />
+                       <input type="text" onChange={nameHandler} name="name" placeholder="full name" className="input input-bordered" required/>
+                       {error.nameError && 
+                       <label className="label">
+                                <p className="label-text-alt link text-red-400 link-hover">{error.nameError}</p>
+                       </label>}
                    </div>
 
                    <div className="form-control">
                        <label className="label">
                            <span className="label-text">Image Url</span>
                        </label>
-                       <input type="text" placeholder="image url" className="input input-bordered" />
+                       <input type="text" onChange={imgUrlHandler} name='imgUrl' placeholder="image url" className="input input-bordered" required />
+
+                       {error.imgUrlError && 
+                       <label className="label">
+                                <p className="label-text-alt link text-red-400 link-hover">{error.imgUrlError}</p>
+                       </label>}
+
                    </div>
 
                    <div className="form-control">
                        <label className="label">
                            <span className="label-text">Email</span>
                        </label>
-                       <input onChange={emailHandler} type="text" name='email' placeholder="email" className="input input-bordered" />
-                       {error.email && 
+                       <input onChange={emailHandler} type="text" name='email' placeholder="email" className="input input-bordered" required/>
+                       {error.emailError && 
                        <label className="label">
-                                <p className="label-text-alt link text-red-400 link-hover">{error.email}</p>
+                                <p className="label-text-alt link text-red-400 link-hover">{error.emailError}</p>
                        </label>}
                    </div>
 
@@ -139,11 +216,11 @@
                            <span className="label-text">Password</span>
                        </label>
 
-                       <input type="password" onChange={passwordHandler} placeholder="password" name='password' className="input input-bordered" />
+                       <input type="password" onChange={passwordHandler} placeholder="password" name='password' className="input input-bordered" required />
 
-                       {error.password && 
+                       {error.passwordError && 
                        <label className="label">
-                                <p className="label-text-alt link text-red-400 link-hover">{error.password}</p>
+                                <p className="label-text-alt link text-red-400 link-hover">{error.passwordError}</p>
                        </label>}
 
                    </div>
@@ -152,12 +229,12 @@
                        <label className="label">
                            <span className="label-text">Confirm Password</span>
                        </label>
-                       <input type="password" onChange={confirmPasswordHandler} placeholder="confirm password" name='confirmPassword' className="input input-bordered" />
+                       <input type="password" onChange={confirmPasswordHandler} placeholder="confirm password" name='confirmPassword' className="input input-bordered"  required/>
 
                        
-                       {error.passwordMatch && 
+                       {error.passwordMatchError && 
                        <label className="label">
-                                <p className="label-text-alt link text-red-400 link-hover">{error.passwordMatch}</p>
+                                <p className="label-text-alt link text-red-400 link-hover">{error.passwordMatchError}</p>
                        </label>}
 
                    </div>
@@ -172,11 +249,11 @@
                     {/* Google and Github login start */}
                     <div className='flex gap-2'>
 
-                         <div className='w-1/2  text-center'>
-                             <button className='py-2'>Google Login</button>
+                         <div className='w-1/2 bg-slate-400 text-center rounded-md text-white hover:bg-slate-500'>
+                             <button className='py-2 '>Google Login</button>
                          </div>
 
-                         <div className='w-1/2  text-center'>
+                         <div className='w-1/2  bg-slate-400 text-center rounded-md text-white hover:bg-slate-500'>
                              <button className='py-2'>Github Login</button>
                          </div>
                     </div>
@@ -184,7 +261,7 @@
                </div>
          </div>
 
-         <div className=' hidden  md:h-[500px] md:w-2/5 md:flex md:justify-start'>
+         <div className='hidden  md:h-[500px] md:w-2/5 md:flex md:justify-start mt-16'>
                    <img src="register.png" alt="" className='h-full' />
            </div>
      </div>
