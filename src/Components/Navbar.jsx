@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 const Navbar = () => {
     return (
@@ -18,6 +18,9 @@ const Navbar = () => {
                                 <li><Link>Courses</Link></li>
                                 <li><Link>Blog</Link></li>
                                 <li><Link>FaQ</Link></li>
+                                <li><Link>Login</Link></li>
+                                <li><Link>Register</Link></li>
+                                <li><Link>Logout</Link></li>
                              </ul>
                        </div>
                      <div className='hidden md:flex items-center gap-1'>
@@ -48,10 +51,13 @@ const Navbar = () => {
 
                 <div className="navbar-end mr-4">
                         <ul className="menu menu-horizontal px-2 hidden md:flex">
-                                <li><Link>Home</Link></li>
-                                <li><Link>Courses</Link></li>
-                                <li><Link>Blog</Link></li>
-                                <li><Link>FaQ</Link></li>
+                                <li><NavLink to={'/home'}>Home</NavLink></li>
+                                <li><NavLink to={'/courses'}>Courses</NavLink></li>
+                                <li><NavLink to={'/blog'}>Blog</NavLink></li>
+                                <li><NavLink to={'/faq'}>FaQ</NavLink></li> 
+                                <li><NavLink to={'/login'}>Login</NavLink></li>
+                                <li><NavLink to={'/register'}>Register</NavLink></li>
+                                <li><NavLink to={'/logout'}>Logout</NavLink></li>
                        </ul>
                 </div>
 
