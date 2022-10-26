@@ -1,7 +1,9 @@
     import React, { useContext, useState } from 'react';
-    import { Link } from 'react-router-dom';
     import { AuthContext } from '../../Context/Authprovider';
     import toast from 'react-hot-toast';
+    import { GoMarkGithub } from 'react-icons/go'
+    import {ImGoogle3} from 'react-icons/im';
+import { useNavigate } from 'react-router-dom';
 
     const Register = () => {
     /*
@@ -165,8 +167,10 @@
     const {
            registerWithGoogle,
            updateUserProfileNameAndImgUrl,
-           registerWithGithub
-        } = useContext(AuthContext);
+           registerWithGithub,registerWithEmailAndPassword
+        } = useContext(AuthContext);  // context api
+    
+    const navigate = useNavigate();
 
     // 1. google provider login 
 
@@ -175,6 +179,7 @@
         registerWithGoogle()
           .then(result=>{
                  toast.success("User Register Success ")
+                 navigate('/home');
           })
           .catch(error=>{
               setError({...error,generalError:error.message});
@@ -191,7 +196,8 @@
         
         registerWithGithub()
           .then(result=>{
-                 toast.success("User Register Success ")
+                 toast.success("User Register Success ");
+                 navigate('/home');
           })
           .catch(error=>{
               setError({...error,generalError:error.message});
@@ -201,17 +207,37 @@
         // registerWithGithub return promise 
     }
 
+    // 3. register/signup user with email and password
+    const submitHandler = (e)=>{
+        e.preventDefault();
+        registerWithEmailAndPassword(userInfo.email,userInfo.password)
+         .then(result=>{
+             updateUserProfileNameAndImgUrl(userInfo.name,userInfo.imgUrl)
+              .then(()=>{
+                 toast.success("User Register Successfully ")
+                 navigate('/home');
+              })
+              .catch(error=>{
+                setError({...error,generalError:error.message})
+              })
+         })
+         .catch(error=>{
+            setError({...error,generalError:error.message})
+         })
+    }
+
+
 
     return (
         <div className='pb-14 '>
         <div className='flex justify-center border-red-300 px-10'>
            
-           <div className='w-full md:w-2/5'>
-              <div className="card-body md:w-96  md:ml-40 shadow-lg">
+           <div className='w-full md:w-6/12'>
+              <div className="card-body md:w-[500px]  md:ml-48 shadow-lg">
 
                 {/* login form start */}
 
-                 <form >
+                 <form onSubmit={submitHandler}>
                    <div className="form-control">
                        <label className="label">
                            <span className="label-text">Name</span>
@@ -291,11 +317,11 @@
                     <div className='flex gap-2'>
 
                          <div className='w-1/2 bg-slate-400 text-center rounded-md text-white hover:bg-slate-500'>
-                             <button onClick={googleLoginHandler} className='py-2 '>Sign Up With Google</button>
+                         <button onClick={googleLoginHandler} className='py-2 flex items-center'> <p className='ml-4'>Sign Up with <span className='hidden md:inline-block'>Google</span></p> <ImGoogle3 className='ml-2'/> </button>
                          </div>
 
                          <div className='w-1/2  bg-slate-400 text-center rounded-md text-white hover:bg-slate-500'>
-                             <button onClick={githubHandler} className='py-2'>Sign Up with Github</button>
+                             <button onClick={githubHandler} className='py-2 flex items-center'> <p className='ml-4'>Sign Up with <span className='hidden md:inline-block'>Github</span></p> <GoMarkGithub className='ml-2'/> </button>
                          </div>
                     </div>
 

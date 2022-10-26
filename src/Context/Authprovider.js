@@ -2,7 +2,7 @@
  // import from firebase 
  import {
          getAuth,signInWithPopup,GoogleAuthProvider,
-         updateProfile,GithubAuthProvider
+         updateProfile,GithubAuthProvider, createUserWithEmailAndPassword
  } from 'firebase/auth'
 
  import app from '../Firebase/Frirsebase.config';
@@ -31,18 +31,24 @@
     return signInWithPopup(auth,githubProvider);
  }
 
-//  //2.update user name and imga url when register /sign up  success
-//  const updateUserProfileNameAndImgUrl  = (name,photoURL)=>{
-//        return updateProfile(auth.currentUser,{
-//         displayName:name,photoURL:photoURL
-//       });
-//  }
+ //3. create/ register user with email and password
+ const registerWithEmailAndPassword = (email,password)=>
+ {
+   return createUserWithEmailAndPassword(auth,email,password);
+ }
+
+ //4.update user name and imga url when register /sign up  success
+ const updateUserProfileNameAndImgUrl  = (name,photoURL)=>{
+       return updateProfile(auth.currentUser,{
+        displayName:name,photoURL:photoURL
+      });
+ }
   
     
 
  const authInfo = {user,registerWithGoogle,
-                 
-                  registerWithGithub
+                  registerWithGithub,registerWithEmailAndPassword,
+                  updateUserProfileNameAndImgUrl
                   };
     return (
         <AuthContext.Provider value={authInfo}>
