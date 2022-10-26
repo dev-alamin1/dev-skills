@@ -1,7 +1,23 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
+import toast from 'react-hot-toast';
 import { Link, NavLink } from 'react-router-dom';
+import { AuthContext } from '../Context/Authprovider';
 
 const Navbar = () => {
+
+    // Receive auth releted info from AuthContext api [from Authproder component]
+    const {user,logout} = useContext(AuthContext); // context api
+
+    const loguoutHandler = ()=>{
+         logout()
+         .then(()=>{
+            toast('Logged Out Success !', {
+                icon: '🔓',
+              });
+         }).catch()
+    }
+
+
     return (
         <div>
              <div className="navbar bg-base-100 px-5 md:px-20">
@@ -18,9 +34,14 @@ const Navbar = () => {
                                 <li><Link>Courses</Link></li>
                                 <li><Link>Blog</Link></li>
                                 <li><Link>FaQ</Link></li>
-                                <li><Link>Login</Link></li>
-                                <li><Link>Register</Link></li>
-                                <li><Link>Logout</Link></li>
+                                {user?.uid ?   <li><Link onClick={loguoutHandler}>Logout</Link></li>
+                                  : <>
+                                         <li><Link to={'/login'}>Login</Link></li>
+                                         <li><Link to={'/register'}>Register</Link></li>
+                                    </>
+                                
+                                }
+  
                              </ul>
                        </div>
                      <div className='hidden md:flex items-center gap-1'>
@@ -55,9 +76,17 @@ const Navbar = () => {
                                 <li><NavLink to={'/courses'}>Courses</NavLink></li>
                                 <li><NavLink to={'/blog'}>Blog</NavLink></li>
                                 <li><NavLink to={'/faq'}>FaQ</NavLink></li> 
-                                <li><NavLink to={'/login'}>Login</NavLink></li>
-                                <li><NavLink to={'/register'}>Register</NavLink></li>
-                                <li><NavLink to={'/logout'}>Logout</NavLink></li>
+
+                                {user?.uid ?   <li><NavLink onClick={loguoutHandler}>Logout</NavLink></li>
+                                  : <>
+                                         <li><NavLink to={'/login'}>Login</NavLink></li>
+                                         <li><NavLink to={'/register'}>Register</NavLink></li>
+                                    </>
+                                
+                               }
+
+                                
+                               
                        </ul>
                 </div>
 
@@ -67,19 +96,27 @@ const Navbar = () => {
                 |------------------------------------------
                 */}
 
+                {console.log(user)}
+
+                {user?.uid && 
+                
                 <div className="dropdown dropdown-end">
-                    <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-                        <div className="w-10 rounded-full">
-                            <img src="https://placeimg.com/80/80/people" alt='' />
-                        </div>
-                    </label>
-                    <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
-                        <li>
-                           <Link className="justify-between"> Profile<span className="badge">New</span></Link>
-                        </li>
-                        <li><Link>Logout</Link></li>
-                    </ul>
-                </div>
+                <label tabIndex={0} className="btn btn-ghost btn-circle avatar tooltip tooltip-left" data-tip={user.displayName}>
+                     {user?.photoURL && 
+                        <div className="w-full rounded-full " >
+                           <img src={user.photoURL} alt=''  />
+                     </div>
+                     }
+                </label>
+                <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
+                    <li>
+                       <Link className="justify-between"> Profile<span className="badge">New</span></Link>
+                    </li>
+                    <li><Link>Logout</Link></li>
+                  </ul>
+               </div>
+                }
+                
 
              </div>
         </div>

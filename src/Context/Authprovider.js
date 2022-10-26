@@ -1,8 +1,9 @@
- import React, { createContext, useState } from 'react';
+ import React, { createContext, useEffect, useState } from 'react';
  // import from firebase 
  import {
          getAuth,signInWithPopup,GoogleAuthProvider,
-         updateProfile,GithubAuthProvider, createUserWithEmailAndPassword
+         updateProfile,GithubAuthProvider, createUserWithEmailAndPassword, 
+         onAuthStateChanged, signOut,signInWithEmailAndPassword
  } from 'firebase/auth'
 
  import app from '../Firebase/Frirsebase.config';
@@ -43,12 +44,35 @@
         displayName:name,photoURL:photoURL
       });
  }
+
+ //5. login with email and password 
+ const loginWithEmailAndPassword = (email,password)=>{
+     return signInWithEmailAndPassword(auth,email,password)
+ }
+
+ //6. logout current User 
+ const logout = ()=>{
+    return signOut(auth);
+ }
+
+
+
+ // 6. get current user info , when login/ register
+ useEffect(()=>{
+     const unsubscribe = onAuthStateChanged(auth,(currentUser=>{
+            setUser(currentUser);
+     }));
+
+     return ()=>{
+        unsubscribe();
+     }
+ },[]);
   
     
 
  const authInfo = {user,registerWithGoogle,
                   registerWithGithub,registerWithEmailAndPassword,
-                  updateUserProfileNameAndImgUrl
+                  updateUserProfileNameAndImgUrl,logout,loginWithEmailAndPassword
                   };
     return (
         <AuthContext.Provider value={authInfo}>

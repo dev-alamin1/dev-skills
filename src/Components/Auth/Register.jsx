@@ -3,7 +3,7 @@
     import toast from 'react-hot-toast';
     import { GoMarkGithub } from 'react-icons/go'
     import {ImGoogle3} from 'react-icons/im';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
     const Register = () => {
     /*
@@ -216,6 +216,7 @@ import { useNavigate } from 'react-router-dom';
               .then(()=>{
                  toast.success("User Register Successfully ")
                  navigate('/home');
+                 console.log(result.user)
               })
               .catch(error=>{
                 setError({...error,generalError:error.message})
@@ -303,6 +304,10 @@ import { useNavigate } from 'react-router-dom';
                        <label className="label">
                                 <p className="label-text-alt link text-red-400 font-bold link-hover">{error.generalError}</p>
                        </label>}
+
+                       <label className="label">
+                                <span>Already have an acooutn ? <Link to={'/login'} className="text-red-500">Login</Link></span>
+                            </label>
 
                    </div>
 
