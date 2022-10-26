@@ -1,9 +1,12 @@
-import React from 'react';
-import { Outlet } from 'react-router-dom';
+import React, { createContext } from 'react';
+import { Outlet, useLoaderData } from 'react-router-dom';
 import Navbar from '../Components/Navbar';
 import Footer from '../Components/Footer';
+export const CourseDataContext = createContext();
 
 const Main = () => {
+    const courses = useLoaderData();
+    console.log('main js theke ',courses)
     return (
         <div>
             {/* 
@@ -13,7 +16,12 @@ const Main = () => {
             */}
 
             <Navbar />
-            <Outlet/>
+
+            {/* Course data will pass all componets under outlet  */}
+             <CourseDataContext.Provider value={{courses}}>
+                <Outlet/>
+             </CourseDataContext.Provider>
+             
             <Footer/>
         </div>
     );

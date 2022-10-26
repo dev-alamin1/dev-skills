@@ -21,7 +21,7 @@ const CourseCard = (props) => {
                                     <div className="badge badge-outline"><AiFillStar className='mr-1 text-yellow-300'/> {ratings}</div>
                                 </div>
                                <div className='text-center w-full mt-2 py-1'>
-                                    <Link className='font-bold'><button className='btn btn-primary w-full'>Details</button></Link>
+                                    <Link className='font-bold' to={`/course/${id}`}><button className='btn btn-primary w-full'>Details</button></Link>
                                </div>
                           </div>
          </div>
