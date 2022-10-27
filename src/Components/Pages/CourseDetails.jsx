@@ -2,19 +2,25 @@ import React from 'react';
 import { AiFillStar } from 'react-icons/ai';
 import { Link, useLoaderData } from 'react-router-dom';
 import CourseSideNav from './CourseSideNav';
+import {GiTeacher} from 'react-icons/gi'
+import {AiOutlineDownload} from 'react-icons/ai'
 
 
 const CourseDetails = () => {
 
      const course = useLoaderData();
-     const {courseName,id,instructor,ratings,totalClass} = course;
+     const {courseName,id,instructor,
+           ratings,totalClass,
+           img,whatWillLearn,courseInfo
+          } = course;
+        
 
     return (
-        <div className='py-10 bg-green-200'>
-           <h2 className='text-center text-2xl mt-5'>Courses</h2>
-              <div className='px-10 md:px-20 flex flex-col md:flex-row gap-10 mt-10'>
+        <div className='py-20 bg-green-200 h-[1200px]'>
+             <h2 className='font-[Poppins] text-center md:text-3xl font-extrabold'> {courseName} <span><div className="badge badge-secondary p-2">Download Info <AiOutlineDownload/></div></span></h2>
+              <div className='px-10 md:px-20 flex flex-col md:flex-row gap-20 mt-10'>
 
-                  <div className="flex-none md:w-1/4 mb-36">
+                  <div className="flex-none md:w-3/12 mb-36">
                     <div className='sticky top-28 h-[340px] '>
 
                         {/* Course sidenavbar  */}
@@ -24,32 +30,47 @@ const CourseDetails = () => {
                  </div>
 
                  <div className="grow">
-                    <div>
-
+                     <div className='flex justify-center'>
                         {/* single Course details card  */}
 
-                        <div className="card md:w-full bg-base-100 shadow-xl">
-                           <img src="https://placeimg.com/400/225/arch" alt="Shoes" className='w-full' />
+                         <div className="card md:w-[600px] bg-base-100 shadow-xl">
+                           <img src={img} alt="course" className='w-full h-96'  />
                            
                               <div className="card-body">
-                                <div className='bg-pink-400 w-60 round py-1'>
-                                    <h2 className="text-center text-white border border-white font-bold">
+                                <div className='bg-pink-400  round py-1'>
+                                    <h2 className="text-center  text-white border border-white font-bold py-2">
                                             {courseName}
                                     </h2>
                                 </div>
-                             <p>Instructor : {instructor}</p>
 
-                              <div className="card-actions">
-                                  <div className="badge badge-outline">Totla Class : {totalClass}</div> 
-                                        <div className="badge badge-outline"><AiFillStar className='mr-1 text-yellow-300'/> {ratings}</div>
+                                    <div className='flex items-center gap-2'>
+                                       <GiTeacher className='text-2xl'/>
+                                       <p className='text-2xl'><strong>Instructor : <span className='text-orange-300'>{instructor}</span></strong></p>
                                     </div>
-                                  <div className='text-center w-full mt-2 py-1'>
-                                        <Link className='font-bold' to={`/course/${id}`}><button className='btn btn-primary w-full'>Details</button></Link>
-                                 </div>
+                                    
+                                    <div>
+                                        <p>{courseInfo}</p>
+                                    </div>
+
+                                    <div>
+                                        <p><strong>What you will learn ?</strong></p>
+                                        {
+                                            whatWillLearn.map((topic,index)=><li key={index}>{topic}</li>)
+                                        }
+                                    </div>
+
+                                 <div className="card-actions">
+                                  <div className="badge badge-outline text-primary">Totla Lecture : <span className="badge badge-secondary ml-1"> {totalClass}</span> </div> 
+                                        <div className="badge badge-outline"><AiFillStar className='mr-1 text-yellow-300'/> {ratings}</div>
+                                </div>
+
+                                <div className='flex justify-end'>
+                                    <Link to={`/checkout/course/${id}`}><button className='btn btn-primary'>Get Premium Access</button></Link>
+                                </div>
+                                  
                              </div>
                          </div>
 
-                         
                      </div>
                 </div>
             </div>

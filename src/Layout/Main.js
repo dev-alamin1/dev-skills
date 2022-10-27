@@ -5,8 +5,8 @@ import Footer from '../Components/Footer';
 export const CourseDataContext = createContext();
 
 const Main = () => {
+    
     const courses = useLoaderData();
-    console.log('main js theke ',courses)
     return (
         <div>
             {/* 
@@ -21,7 +21,7 @@ const Main = () => {
              <CourseDataContext.Provider value={{courses}}>
                 <Outlet/>
              </CourseDataContext.Provider>
-             
+
             <Footer/>
         </div>
     );

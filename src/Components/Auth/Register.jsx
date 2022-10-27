@@ -337,7 +337,7 @@ import { Link, useNavigate } from 'react-router-dom';
                    <img src="register.png" alt="" className='h-full' />
            </div>
      </div>
-  </div>
+        </div>
     );
 };
 

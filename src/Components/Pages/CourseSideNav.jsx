@@ -16,9 +16,11 @@ const CourseSideNav = () => {
 
                 <div className="card md:w-full  bg-base-100 shadow-xl">
                      <div className="card-body">
-                        <h2 className="card-title bg-pink-400  text-white py-2">
+                       <div className='text-center'>
+                          <h2 className="py-2 text-xl">
                             Courses Quick Links
                          </h2> 
+                       </div>
                             <div className="card-actions justify-center md:justify-start">
                                 <ul className='divide-y w-full divide-double mt-2 '>
                                     {

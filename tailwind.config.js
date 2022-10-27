@@ -19,6 +19,8 @@ module.exports = {
   },
   fontFamily: {
     Poppins: ['Poppins', 'sans-serif'],
+    Lobster: ['Lobster','cursive'],
+    BerkshireSwash: ['Berkshire Swash','cursive'],
   },
   plugins: [require("daisyui")],
 }

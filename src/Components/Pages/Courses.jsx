@@ -12,16 +12,16 @@ const Courses = () => {
     |  CourseDataContext api is locatde on layout -> Mains.js 
     */
     const {courses} = useContext(CourseDataContext); //context api    
-      
+
     return (
         <div className='py-10 bg-green-200'>
-            <h2 className='text-center text-2xl mt-5'>Courses</h2>
+            <h2 className='font-[Poppins] text-center md:text-5xl font-extrabold'> Our Courses</h2>
             <div className='px-10 md:px-20 flex flex-col md:flex-row gap-10 mt-10'>
 
                  {/* left side  */}
 
                  <div className="flex-none md:w-1/4 mb-36">
-                    <div className='sticky top-28 h-[340px] '>
+                    <div className='sticky top-32 h-[340px] '>
 
                         {/* course sideNavbar  */}
                         <CourseSideNav/>

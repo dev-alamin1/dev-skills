@@ -6,7 +6,7 @@ import Login from '../Components/Auth/Login';
 import Register from '../Components/Auth/Register';
 import Courses from '../Components/Pages/Courses';
 import CourseDetails from '../Components/Pages/CourseDetails';
-import CourseTest from '../Components/Pages/CourseSideNav';
+import Checkout from '../Components/Pages/Checkout';
 
 /*
 |---------------------------
@@ -37,6 +37,16 @@ const router = createBrowserRouter([
             },
             element:<CourseDetails/>
         },
+
+        {
+            path:'/checkout/course/:id',
+            loader:({params})=>{
+              return fetch(`http://localhost:5000/course/${params.id}`);
+            },
+            element:<Checkout/>
+        },
+
+        
 
         {
           path:'/login',
