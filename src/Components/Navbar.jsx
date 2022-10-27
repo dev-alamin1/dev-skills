@@ -1,7 +1,9 @@
 import React, { useContext, useState } from 'react';
 import toast from 'react-hot-toast';
-import { Link, NavLink } from 'react-router-dom';
+import { Link} from 'react-router-dom';
 import { AuthContext } from '../Context/Authprovider';
+import {MdDarkMode} from 'react-icons/md';
+import {CiLight} from 'react-icons/ci';
 
 const Navbar = () => {
 
@@ -16,6 +18,9 @@ const Navbar = () => {
               });
          }).catch()
     }
+
+    // Theme change (Dark Mode or light Mode)
+     const [theme,setTheme] =useState(true);
 
 
     return (
@@ -41,6 +46,7 @@ const Navbar = () => {
                                     </>
                                 
                                 }
+                                <li><Link><button onClick={()=>setTheme(!theme)}> {theme? <MdDarkMode className='text-xl'/> :<CiLight className='text-xl'/> } </button></Link></li> 
   
                              </ul>
                        </div>
@@ -85,8 +91,7 @@ const Navbar = () => {
                                 
                                }
 
-                                
-                               
+                               <li><Link><button onClick={()=>setTheme(!theme)}> {theme? <MdDarkMode className='text-xl'/> :<CiLight className='text-xl'/> } </button></Link></li> 
                        </ul>
                 </div>
 
