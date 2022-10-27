@@ -9,6 +9,7 @@ import CourseDetails from '../Components/Pages/CourseDetails';
 import Checkout from '../Components/Pages/Checkout';
 import PrivateRoute from './PrivateRoute';
 import Blog from '../Components/Pages/Blog';
+import Faq from '../Components/Pages/Faq';
 
 /*
 |---------------------------
@@ -24,7 +25,7 @@ const router = createBrowserRouter([
       errorElement: <Error/>,
       children:[
         {
-            path:'/home',
+            path:'/',
             element:<Home/>
         },
         {
@@ -51,6 +52,11 @@ const router = createBrowserRouter([
         {
             path:'/blog',
             element:<Blog/>
+        },
+
+        {
+            path:'/faq',
+            element:<Faq/>
         },
 
         {
