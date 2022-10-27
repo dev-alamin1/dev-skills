@@ -2,10 +2,13 @@ import React, { useContext, useState } from 'react';
 import toast from 'react-hot-toast';
 import { GoMarkGithub } from 'react-icons/go';
 import { ImGoogle3 } from 'react-icons/im';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Context/Authprovider';
 
 const Login = () => {
+
+     const location = useLocation();
+     const from = location.state?.from?.pathname || "/home"
 
     // user login validation start
     const [userInfo,setUserInfo] = useState(
@@ -92,7 +95,7 @@ const Login = () => {
      registerWithGoogle()
        .then(result=>{
               toast.success("User Register Success ")
-              navigate('/home');
+              navigate(from,{replace:true});
        })
        .catch(error=>{
            setError({...error,generalError:error.message});
@@ -110,7 +113,7 @@ const Login = () => {
      registerWithGithub()
        .then(result=>{
               toast.success("User Register Success ");
-              navigate('/home');
+              navigate(from,{replace:true});
        })
        .catch(error=>{
            setError({...error,generalError:error.message});
@@ -120,7 +123,7 @@ const Login = () => {
      // registerWithGithub return promise 
  }
 
- // 3. register/signup user with email and password
+ // 3. login user with email and password
  const submitHandler = (e)=>{
        e.preventDefault();
        loginWithEmailAndPassword(userInfo.email,userInfo.password)
@@ -128,17 +131,13 @@ const Login = () => {
             toast('Logged In Success !', {
                 icon: '🔐',
               });
+              navigate(from,{replace:true});
          })
          .catch(error=>{
             setError({...error,generalError:error.message});
             console.log(error.message)
          })
  }
-
-
- 
-
-
 
 
     return (

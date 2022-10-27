@@ -99,7 +99,7 @@ const Navbar = () => {
                 {user?.uid && 
                 
                 <div className="dropdown dropdown-end">
-                <label tabIndex={0} className="btn btn-ghost btn-circle avatar tooltip tooltip-left" data-tip={user.displayName}>
+                <label tabIndex={0} className="btn btn-ghost btn-circle avatar tooltip tooltip-left" data-tip={user.displayName ? user.displayName :" Name not Available"}>
                      {user?.photoURL && 
                         <div className="w-full rounded-full " >
                            <img src={user.photoURL} alt=''  />
@@ -110,7 +110,7 @@ const Navbar = () => {
                     <li>
                        <Link className="justify-between"> Profile<span className="badge">New</span></Link>
                     </li>
-                    <li><Link>Logout</Link></li>
+                    <li><Link onClick={loguoutHandler}>Logout</Link></li>
                   </ul>
                </div>
                 }

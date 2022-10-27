@@ -12,15 +12,17 @@
  const auth = getAuth(app);
 
  // create AuthContext Api for share user information
-
  export const AuthContext = createContext({});
 
  const Authprovider = ({children}) => {
  const [user,setUser] = useState({});
     
+  const [loading,setLoading] = useState(true)
+
  //1.singIn with google provieder 
  const googleProvider = new GoogleAuthProvider();
  const registerWithGoogle = ()=>{
+    setLoading(true)
     return signInWithPopup(auth,googleProvider);
  }
 
@@ -29,12 +31,14 @@
 
  const registerWithGithub = ()=>
  {
+    setLoading(true)
     return signInWithPopup(auth,githubProvider);
  }
 
  //3. create/ register user with email and password
  const registerWithEmailAndPassword = (email,password)=>
  {
+   setLoading(true)
    return createUserWithEmailAndPassword(auth,email,password);
  }
 
@@ -47,11 +51,13 @@
 
  //5. login with email and password 
  const loginWithEmailAndPassword = (email,password)=>{
+    setLoading(true)
      return signInWithEmailAndPassword(auth,email,password)
  }
 
  //6. logout current User 
  const logout = ()=>{
+    setLoading(true)
     return signOut(auth);
  }
 
@@ -61,6 +67,7 @@
  useEffect(()=>{
      const unsubscribe = onAuthStateChanged(auth,(currentUser=>{
             setUser(currentUser);
+            setLoading(false)
      }));
 
      return ()=>{
@@ -72,7 +79,7 @@
 
  const authInfo = {user,registerWithGoogle,
                   registerWithGithub,registerWithEmailAndPassword,
-                  updateUserProfileNameAndImgUrl,logout,loginWithEmailAndPassword
+                  updateUserProfileNameAndImgUrl,logout,loginWithEmailAndPassword,loading
                   };
     return (
         <AuthContext.Provider value={authInfo}>

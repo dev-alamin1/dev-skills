@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Home = () => {
     return (
@@ -11,7 +12,7 @@ const Home = () => {
                             <p>Coding is basically the computer language used to develop apps, websites, and software. Without it, we’d have none of the most popular technology we’ve come to rely on such as Facebook, our smartphones, the browser we choose to view our favorite blogs, or even the blogs themselves. It all runs on code.</p>
                          </div>
 
-                         <button className='bg-[#ef3541] font-bold text-white px-3 py-2 mt-5 hover:bg'>Enroll Course</button>
+                         <Link to={'/courses'}><button className='bg-[#ef3541] font-bold text-white px-3 py-2 mt-5 hover:bg'>Enroll Course</button></Link>
                    </div>
 
                  <div className='md:w-6/12'>
@@ -38,7 +39,7 @@ const Home = () => {
 
                             <p className='mb-4'>Education encompasses both the teaching and learning of knowledge, proper conduct, and technical competency.</p>
 
-                            <button className='bg-[#ef3541] font-bold text-white px-3 py-2 mt-4 hover:bg'>View Course</button>
+                            <Link to={'/courses'}><button className='bg-[#ef3541] font-bold text-white px-3 py-2 mt-4 hover:bg'>View Course</button></Link>
                         </div>
                     </div>
              </div>
