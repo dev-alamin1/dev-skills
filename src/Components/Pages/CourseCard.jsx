@@ -12,7 +12,7 @@ const CourseCard = (props) => {
 
                             <div className="card-body">
                                 <div className=' rounded py-1'>
-                                    <h2 className="text-center border border-fuchsia-400 border-t-rounded font-bold">
+                                    <h2 className="text-center border border-fuchsia-400 rounded font-bold">
                                         {courseName}
                                     </h2>
                                 </div>

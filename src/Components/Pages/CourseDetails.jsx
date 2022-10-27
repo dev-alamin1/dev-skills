@@ -16,7 +16,7 @@ const CourseDetails = () => {
      const course = useLoaderData();
      const {courseName,id,instructor,
            ratings,totalClass,
-           img,whatWillLearn,courseInfo
+           img,whatWillLearn,courseInfo,price
           } = course;
 
           const  pdfGenerate = ()=>{
@@ -34,7 +34,7 @@ const CourseDetails = () => {
 
     return (
 
-        <div className='py-20 bg-green-200 h-[1200px]'>
+        <div className='py-20 bg-green-200 md:h-[1200px] h-auto'>
              <h2 className='font-[Poppins] text-center md:text-3xl font-extrabold'> {courseName} <span><div className="badge badge-secondary p-2" onClick={pdfGenerate}>Download Info <AiOutlineDownload/></div></span></h2>
               <div className='px-10 md:px-20 flex flex-col md:flex-row gap-20 mt-10'>
 
@@ -80,6 +80,7 @@ const CourseDetails = () => {
                                  <div className="card-actions">
                                   <div className="badge badge-outline text-primary">Totla Lecture : <span className="badge badge-secondary ml-1"> {totalClass}</span> </div> 
                                         <div className="badge badge-outline"><AiFillStar className='mr-1 text-yellow-300'/> {ratings}</div>
+                                        <div className="badge badge-outline">Price: ${price}</div>
                                 </div>
 
                                 <div className='flex justify-end'>

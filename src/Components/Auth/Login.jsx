@@ -187,7 +187,7 @@ const Login = () => {
 
                             <label className="label">
                                 <Link className="label-text-alt link link-hover">Forgot password?</Link>
-                                <span>Don't have account ? <Link to={'/register'} className="text-red-500">Register</Link></span>
+                                <span><small>Don't have account ? <Link to={'/register'} className="text-red-500">Register</Link></small></span>
                                 
                             </label>
                         </div>
@@ -197,14 +197,14 @@ const Login = () => {
                         </div>
                     </form>
 
-                    <div className='flex gap-2'>
+                    <div className='flex gap-1'>
 
                         <div className='w-1/2 bg-slate-400 text-center rounded-md text-white hover:bg-slate-500'>
-                        <button onClick={googleLoginHandler} className='py-2 flex items-center'> <p className='ml-4'>Log In with <span className='hidden md:inline-block'>Google</span></p> <ImGoogle3 className='ml-2'/> </button>
+                        <button onClick={googleLoginHandler} className='py-2 flex items-center'> <p className='md:ml-4'>LogIn with <span className='hidden md:inline-block'>Google</span></p> <ImGoogle3 className='ml-2'/> </button>
                         </div>
 
                         <div className='w-1/2  bg-slate-400 text-center rounded-md text-white hover:bg-slate-500'>
-                            <button onClick={githubHandler} className='py-2 flex items-center'> <p className='ml-4'>Log In with <span className='hidden md:inline-block'>Github</span></p> <GoMarkGithub className='ml-2'/> </button>
+                            <button onClick={githubHandler} className='py-2 flex items-center'> <p className='md:ml-4'>LogIn with <span className='hidden md:inline-block'>Github</span></p> <GoMarkGithub className='ml-2'/> </button>
                         </div>
                         </div>
                     </div>

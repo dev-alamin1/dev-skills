@@ -21,7 +21,7 @@ const router = createBrowserRouter([
 
     {
       path:'/',
-      loader:()=>fetch('http://localhost:5000/courses'),
+      loader:()=>fetch('https://dev-skill-server-alaminmondalcse-gmailcom.vercel.app/courses'),
       element:<Main/>,
       errorElement: <Error/>,
       children:[
@@ -37,7 +37,7 @@ const router = createBrowserRouter([
         {
             path:'/course/:id',
             loader:({params})=>{
-              return fetch(`http://localhost:5000/course/${params.id}`);
+              return fetch(`https://dev-skill-server-alaminmondalcse-gmailcom.vercel.app/course/${params.id}`);
             },
             element:<CourseDetails/>
         },
@@ -45,7 +45,7 @@ const router = createBrowserRouter([
         {
             path:'/checkout/course/:id',
             loader:({params})=>{
-              return fetch(`http://localhost:5000/course/${params.id}`);
+              return fetch(`https://dev-skill-server-alaminmondalcse-gmailcom.vercel.app/course/${params.id}`);
             },
             element:<PrivateRoute><Checkout/></PrivateRoute>
         },
