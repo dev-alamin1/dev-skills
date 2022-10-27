@@ -4,22 +4,38 @@ import { Link, useLoaderData } from 'react-router-dom';
 import CourseSideNav from './CourseSideNav';
 import {GiTeacher} from 'react-icons/gi'
 import {AiOutlineDownload} from 'react-icons/ai'
+import jsPDF from 'jspdf';
 
 
 
 
 const CourseDetails = () => {
 
+    
+
      const course = useLoaderData();
      const {courseName,id,instructor,
            ratings,totalClass,
            img,whatWillLearn,courseInfo
           } = course;
+
+          const  pdfGenerate = ()=>{
+            let doc = new jsPDF('landscape', 'px', 'a4', 'false');
+            doc.addImage(img,56, 50, 500, 400);
+            doc.addPage();
+            doc.text(280,15,courseName);
+            doc.text(10,40,courseInfo);
+            doc.text(10,40,courseInfo);
+            
+            
+            doc.save('a.pdf');
+         }
         
 
     return (
+
         <div className='py-20 bg-green-200 h-[1200px]'>
-             <h2 className='font-[Poppins] text-center md:text-3xl font-extrabold'> {courseName} <span><div className="badge badge-secondary p-2">Download Info <AiOutlineDownload/></div></span></h2>
+             <h2 className='font-[Poppins] text-center md:text-3xl font-extrabold'> {courseName} <span><div className="badge badge-secondary p-2" onClick={pdfGenerate}>Download Info <AiOutlineDownload/></div></span></h2>
               <div className='px-10 md:px-20 flex flex-col md:flex-row gap-20 mt-10'>
 
                   <div className="flex-none md:w-3/12 mb-36">

@@ -16,7 +16,7 @@ const Home = () => {
                    </div>
 
                  <div className='md:w-6/12'>
-                        <img src="focus-animation.gif" alt="" />
+                        <img src="https://i.ibb.co/X2pF5Ym/focus-animation.gif" alt="" />
                  </div>
              </div>
 
@@ -25,7 +25,7 @@ const Home = () => {
              <div className='md:flex justify-around md:mt-5 gap-2 px-10 md:px-0'>
                    
                     <div className='md:w-2/5 flex justify-center '>
-                         <img src="code-2.jpg" alt="" className='' />
+                         <img src="https://i.ibb.co/jGgmYWN/code-2.jpg" alt="" className='' />
                     </div>
 
                     <div className=' md:w-2/5  flex items-center justify-center'>

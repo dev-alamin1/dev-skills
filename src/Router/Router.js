@@ -11,6 +11,7 @@ import PrivateRoute from './PrivateRoute';
 import Blog from '../Components/Pages/Blog';
 import Faq from '../Components/Pages/Faq';
 
+
 /*
 |---------------------------
 | Website Router And Element 
@@ -62,8 +63,8 @@ const router = createBrowserRouter([
         {
           path:'/login',
           element:<Login/>
-        }
-        ,
+        },
+
         {
           path:'/register',
           element:<Register/>

@@ -334,7 +334,7 @@
          </div>
 
          <div className='hidden  md:h-[500px] md:w-2/5 md:flex md:justify-start mt-16'>
-                   <img src="register.png" alt="" className='h-full' />
+                   <img src="https://i.ibb.co/g7qjxCn/register.png" alt="" className='h-full' />
            </div>
      </div>
         </div>

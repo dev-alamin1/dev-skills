@@ -151,7 +151,7 @@ const Login = () => {
         <div className='py-5'>
              <div className='flex justify-center  md:py-10  border-red-300 px-10'>
                 <div className=' hidden  md:h-[500px] md:w-2/5 md:flex md:justify-end'>
-                        <img src="login.png" alt="" className='h-full' />
+                        <img src="https://i.ibb.co/r4Xbgs0/login.png" alt="" className='h-full' />
                 </div>
 
                 <div className='w-full md:w-2/5'>
