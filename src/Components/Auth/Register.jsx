@@ -179,7 +179,7 @@
         registerWithGoogle()
           .then(result=>{
                  toast.success("User Register Success ")
-                 navigate('/home');
+                 navigate('/');
           })
           .catch(error=>{
               setError({...error,generalError:error.message});
@@ -197,7 +197,7 @@
         registerWithGithub()
           .then(result=>{
                  toast.success("User Register Success ");
-                 navigate('/home');
+                 navigate('/');
           })
           .catch(error=>{
               setError({...error,generalError:error.message});
@@ -215,7 +215,7 @@
              updateUserProfileNameAndImgUrl(userInfo.name,userInfo.imgUrl)
               .then(()=>{
                  toast.success("User Register Successfully ")
-                 navigate('/home');
+                 navigate('/');
                  console.log(result.user)
               })
               .catch(error=>{

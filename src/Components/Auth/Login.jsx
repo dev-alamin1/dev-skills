@@ -8,7 +8,7 @@ import { AuthContext } from '../../Context/Authprovider';
 const Login = () => {
 
      const location = useLocation();
-     const from = location.state?.from?.pathname || "/home"
+     const from = location.state?.from?.pathname || "/"
 
     // user login validation start
     const [userInfo,setUserInfo] = useState(
@@ -82,8 +82,8 @@ const Login = () => {
 
 
     const {
-        registerWithGoogle,
-        registerWithGithub,loginWithEmailAndPassword
+        loginWithGoogle,
+        loginWithGithub,loginWithEmailAndPassword
      } = useContext(AuthContext);  // context api
  
  const navigate = useNavigate();
@@ -92,7 +92,7 @@ const Login = () => {
 
  const googleLoginHandler = ()=>{
      
-     registerWithGoogle()
+     loginWithGoogle()
        .then(result=>{
               toast.success("User Register Success ")
               navigate(from,{replace:true});
@@ -110,7 +110,7 @@ const Login = () => {
 
  const githubHandler = ()=>{
      
-     registerWithGithub()
+     loginWithGithub()
        .then(result=>{
               toast.success("User Register Success ");
               navigate(from,{replace:true});
