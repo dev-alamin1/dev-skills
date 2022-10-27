@@ -118,6 +118,7 @@ const Login = () => {
        .then(result=>{
               toast.success("User Register Success ");
               navigate(from,{replace:true});
+              
        })
        .catch(error=>{
            setError({...error,generalError:error.message});
@@ -200,11 +201,11 @@ const Login = () => {
                     <div className='flex gap-1'>
 
                         <div className='w-1/2 bg-slate-400 text-center rounded-md text-white hover:bg-slate-500'>
-                        <button onClick={googleLoginHandler} className='py-2 flex items-center'> <p className='md:ml-4'>LogIn with <span className='hidden md:inline-block'>Google</span></p> <ImGoogle3 className='ml-2'/> </button>
+                        <button onClick={googleLoginHandler} className='py-2 flex items-center'> <p className='ml-2 md:ml-4'>LogIn with <span className='hidden md:inline-block'>Google</span></p> <ImGoogle3 className='ml-2'/> </button>
                         </div>
 
                         <div className='w-1/2  bg-slate-400 text-center rounded-md text-white hover:bg-slate-500'>
-                            <button onClick={githubHandler} className='py-2 flex items-center'> <p className='md:ml-4'>LogIn with <span className='hidden md:inline-block'>Github</span></p> <GoMarkGithub className='ml-2'/> </button>
+                            <button onClick={githubHandler} className='py-2 flex items-center'> <p className='ml-2 md:ml-4'>LogIn with <span className='hidden md:inline-block'>Github</span></p> <GoMarkGithub className='ml-2'/> </button>
                         </div>
                         </div>
                     </div>
