@@ -7,6 +7,7 @@ import { AuthContext } from '../../Context/Authprovider';
 
 const Login = () => {
 
+    // store location for redirect after login 
      const location = useLocation();
      const from = location.state?.from?.pathname || "/"
 
@@ -18,12 +19,14 @@ const Login = () => {
          }
         );
 
-    
+    //store error 
     const [error,setError] = useState({
         emailError:"",
         passwordError:"",
         generalError:""
     });
+
+    // email error handler 
     const emailHandler = (e)=>{
         const email = e.target.value;
         const regx = /^[a-z0-9][a-z0-9-_\.]+@([a-z]|[a-z0-9]?[a-z0-9-]+[a-z0-9])\.[a-z0-9]{2,10}(?:\.[a-z]{2,10})?$/;
@@ -81,18 +84,19 @@ const Login = () => {
     // user login validation end 
 
 
+    // received user data from AuthContex api
     const {
         loginWithGoogle,
         loginWithGithub,loginWithEmailAndPassword
      } = useContext(AuthContext);  // context api
  
- const navigate = useNavigate();
+    const navigate = useNavigate();
 
- // 1. google provider login 
+   // 1. google provider login 
 
- const googleLoginHandler = ()=>{
+    const googleLoginHandler = ()=>{
      
-     loginWithGoogle()
+    loginWithGoogle()
        .then(result=>{
               toast.success("User Register Success ")
               navigate(from,{replace:true});
@@ -103,14 +107,14 @@ const Login = () => {
 
      //loginWithGoogle = singInWithPopUp ( which is firebase method)
      // loginWithGoogle return promise 
- }
+    }
 
 
- // 2. gihub register user create 
+  // 2. gihub register user create 
 
- const githubHandler = ()=>{
+  const githubHandler = ()=>{
      
-     loginWithGithub()
+    loginWithGithub()
        .then(result=>{
               toast.success("User Register Success ");
               navigate(from,{replace:true});
@@ -121,10 +125,10 @@ const Login = () => {
 
      // registerWithGithub = singInWithPopUp ( which is firebase method)
      // registerWithGithub return promise 
- }
+   }
 
- // 3. login user with email and password
- const submitHandler = (e)=>{
+   // 3. login user with email and password
+    const submitHandler = (e)=>{
        e.preventDefault();
        loginWithEmailAndPassword(userInfo.email,userInfo.password)
          .then(resutl=>{
@@ -137,7 +141,10 @@ const Login = () => {
             setError({...error,generalError:error.message});
             console.log(error.message)
          })
- }
+    }
+
+
+ 
 
 
     return (
