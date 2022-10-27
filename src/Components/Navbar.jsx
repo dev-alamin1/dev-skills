@@ -32,7 +32,7 @@ const Navbar = () => {
                              <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-auto">
                                 <li><Link>Home</Link></li>
                                 <li><Link>Courses</Link></li>
-                                <li><Link>Blog</Link></li>
+                                <li><Link to="/blog">Blog</Link></li>
                                 <li><Link>FaQ</Link></li>
                                 {user?.uid ?   <li><Link onClick={loguoutHandler}>Logout</Link></li>
                                   : <>

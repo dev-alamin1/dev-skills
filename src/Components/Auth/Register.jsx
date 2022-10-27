@@ -3,7 +3,7 @@
     import toast from 'react-hot-toast';
     import { GoMarkGithub } from 'react-icons/go'
     import {ImGoogle3} from 'react-icons/im';
-import { Link, useNavigate } from 'react-router-dom';
+    import { Link, useNavigate } from 'react-router-dom';
 
     const Register = () => {
     /*

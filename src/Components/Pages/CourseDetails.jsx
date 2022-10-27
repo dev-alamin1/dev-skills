@@ -6,6 +6,8 @@ import {GiTeacher} from 'react-icons/gi'
 import {AiOutlineDownload} from 'react-icons/ai'
 
 
+
+
 const CourseDetails = () => {
 
      const course = useLoaderData();
