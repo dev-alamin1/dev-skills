@@ -51,7 +51,7 @@ const CourseDetails = () => {
                      <div className='flex justify-center'>
                         {/* single Course details card  */}
 
-                         <div className="card md:w-[600px] bg-base-100 shadow-xl">
+                         <div className="card  bg-base-100 shadow-xl">
                            <img src={img} alt="course" className='w-full h-96'  />
                            
                               <div className="card-body">
