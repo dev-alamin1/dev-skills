@@ -6,32 +6,32 @@ const Footer = () => {
     return (
         <div>
 
-            <footer className="footer p-10 bg-base-200 text-base-content px-10 md:px-20">
+            <footer className="footer p-10 bg-[#2e86de] text-white  px-10 md:px-20">
                 <div>
-                    <span className="footer-title">Services</span> 
+                    <span className='uppercase font-bold'>Services</span> 
                     <a className="link link-hover">Branding</a> 
                     <a className="link link-hover">Design</a> 
                     <a className="link link-hover">Marketing</a> 
                     <a className="link link-hover">Advertisement</a>
                 </div> 
                 <div>
-                    <span className="footer-title">Company</span> 
+                    <span className='uppercase font-bold'>Company</span> 
                     <a className="link link-hover">About us</a> 
                     <a className="link link-hover">Contact</a> 
                     <a className="link link-hover">Jobs</a> 
                     <a className="link link-hover">Press kit</a>
                 </div> 
                 <div>
-                    <span className="footer-title">Legal</span> 
+                    <span className='uppercase font-bold'>Legal</span> 
                     <a className="link link-hover">Terms of use</a> 
                     <a className="link link-hover">Privacy policy</a> 
                     <a className="link link-hover">Cookie policy</a>
                 </div> 
                 <div>
-                    <span className="footer-title">Newsletter</span> 
+                    <span className='uppercase font-bold'>Newsletter</span> 
                     <div className="form-control w-80">
                     <label className="label">
-                        <span className="label-text">Enter your email address</span>
+                        <span className="label-text text-white">Enter your email address</span>
                     </label> 
                     <div className="relative">
                         <input type="text" placeholder="username@site.com" className="input input-bordered w-full pr-16" /> 

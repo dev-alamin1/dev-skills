@@ -3,11 +3,12 @@ import { Link } from 'react-router-dom';
 
 const Home = () => {
     return (
-        <div>
+        <div className='bg-white'>
              <div className='flex flex-col-reverse md:flex-row gap-2 md:items-center  px-10 md:px-20 py-14'>
 
                  <div className='md:w-6/12'>
-                        <h2 className='font-[Poppins] md:text-6xl font-extrabold'>Learning Coding is <br/> Easier !</h2>
+                        <h2 className='font-[Poppins] md:text-6xl font-extrabold hidden md:block'>Learning Coding is <br/> Easier !</h2>
+                        <h2 className='font-[Poppins] text-2xl font-extrabold md:hidden'>Learning Coding is Easier !</h2>
                          <div className='mt-5 font-[Poppins]'>
                             <p>Coding is basically the computer language used to develop apps, websites, and software. Without it, we’d have none of the most popular technology we’ve come to rely on such as Facebook, our smartphones, the browser we choose to view our favorite blogs, or even the blogs themselves. It all runs on code.</p>
                          </div>

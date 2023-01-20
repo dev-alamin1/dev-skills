@@ -22,7 +22,7 @@ const CourseSideNav = () => {
                          </h2> 
                        </div>
                             <div className="card-actions justify-center md:justify-start">
-                                <ul className='divide-y w-full divide-double mt-2 '>
+                                <ul className=' w-full  mt-2 '>
                                     {
                                     courses.map(course=><CourseList key={course.id} course={course}/>)
                                     }
