@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Instructor from './Instructor';
 
 const Home = () => {
     return (
@@ -26,7 +27,7 @@ const Home = () => {
              <div className='md:flex justify-around md:mt-5 gap-2 px-10 md:px-0 text-blue-600'>
                    
                     <div className='md:w-2/5 flex justify-center '>
-                         <img src="https://i.ibb.co/jGgmYWN/code-2.jpg" alt="" className='' />
+                         <img src="https://i.ibb.co/jGgmYWN/code-2.jpg" alt=""  />
                     </div>
 
                     <div className=' md:w-2/5  flex items-center justify-center'>
@@ -44,6 +45,8 @@ const Home = () => {
                         </div>
                     </div>
              </div>
+
+             <Instructor/>
         </div>
     );
 };
