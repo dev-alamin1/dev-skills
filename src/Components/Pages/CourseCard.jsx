@@ -10,7 +10,7 @@ const CourseCard = (props) => {
 
                      <img src={thumbNail? thumbNail :''} alt="course" className='w-full h-44' />
 
-                            <div className="card-body">
+                            <div className="card-body text-gray-800">
                                 <div className=' rounded py-1'>
                                     <h2 className="text-center border border-fuchsia-400 rounded font-bold">
                                         {courseName}

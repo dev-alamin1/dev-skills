@@ -114,10 +114,7 @@ const Navbar = () => {
                      </div>
                      }
                 </label>
-                <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
-                    <li>
-                       <Link className="justify-between"> Profile<span className="badge">New</span></Link>
-                    </li>
+                <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow  bg-blue-500 text-white rounded-box w-52">
                     <li><Link onClick={loguoutHandler}>Logout</Link></li>
                   </ul>
                </div>

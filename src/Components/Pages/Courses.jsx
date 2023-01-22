@@ -15,7 +15,7 @@ const Courses = () => {
 
     return (
         <div className='py-10 bg-white'>
-            <h2 className='font-[Poppins] text-center md:text-5xl font-extrabold'> Our Courses</h2>
+            <h2 className='font-[Poppins] text-blue-500 text-center md:text-5xl font-extrabold'> Our Courses</h2>
             <div className='px-10 md:px-20 flex flex-col md:flex-row gap-10 mt-10'>
 
                  {/* left side  */}
