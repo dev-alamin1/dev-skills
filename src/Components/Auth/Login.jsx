@@ -149,52 +149,51 @@ const Login = () => {
 
 
     return (
-        <div className='py-5'>
+        <div className='py-5 bg-white'>
              <div className='flex justify-center  md:py-10  border-red-300 px-10'>
                 <div className=' hidden  md:h-[500px] md:w-2/5 md:flex md:justify-end'>
                         <img src="https://i.ibb.co/r4Xbgs0/login.png" alt="" className='h-full' />
                 </div>
 
                 <div className='w-full md:w-2/5'>
-                   <div className="card-body md:w-[450px] mt-10">
+                   <div className="card-body md:w-[450px] mt-10 bg-[#5352ed] rounded-md">
                        <form onSubmit={submitHandler}>
                         <div className="form-control">
                             <label className="label">
-                                <span className="label-text">Email</span>
+                                <span className="label-text text-white">Email</span>
                             </label>
-                            <input type="email" onChange={emailHandler} name='email' placeholder="email" className="input input-bordered" required />
+                            <input type="email" onChange={emailHandler} name='email' placeholder="email" className="input input-bordered bg-slate-50 text-gray-800" required />
                             {error.emailError && 
                             <label className="label">
-                                <p className="label-text-alt link text-red-400 font-bold link-hover">{error.emailError}</p>
+                                <p className="label-text-alt link text-white  font-bold link-hover">{error.emailError}</p>
                             </label>}
                         </div>
 
                         <div className="form-control">
                             <label className="label">
-                                <span className="label-text">Password</span>
+                                <span className="label-text text-white">Password</span>
                             </label>
 
-                            <input type="password" onChange={passwordHandler} name='password' placeholder="password" className="input input-bordered" />
+                            <input type="password" onChange={passwordHandler} name='password' placeholder="password" className="input input-bordered  bg-slate-50 text-gray-800" />
                            
                             {error.passwordError && 
                             <label className="label">
-                                <p className="label-text-alt link text-red-400 font-bold link-hover">{error.passwordError}</p>
+                                <p className="label-text-alt link text-white font-bold link-hover">{error.passwordError}</p>
                             </label>}
 
                             {error.generalError && 
                             <label className="label">
-                                        <p className="label-text-alt link text-red-400 font-bold link-hover">{error.generalError}</p>
+                                        <p className="label-text-alt link text-white font-bold link-hover">{error.generalError}</p>
                             </label>}
 
                             <label className="label">
-                                <Link className="label-text-alt link link-hover">Forgot password?</Link>
-                                <span><small>Don't have account ? <Link to={'/register'} className="text-red-500">Register</Link></small></span>
+                                <span><small className='text-white'>Don't have account ? <Link to={'/register'} className="text-white">Register</Link></small></span>
                                 
                             </label>
                         </div>
 
                         <div className="form-control mt-6">
-                            <button className="btn btn-primary">Login</button>
+                            <button className="btn btn-warning">Login</button>
                         </div>
                     </form>
 

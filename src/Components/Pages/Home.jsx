@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Instructor from './Instructor';
+import Testimonials from './Testimonials';
 
 const Home = () => {
     return (
@@ -47,6 +48,8 @@ const Home = () => {
              </div>
 
              <Instructor/>
+
+             <Testimonials/>
         </div>
     );
 };

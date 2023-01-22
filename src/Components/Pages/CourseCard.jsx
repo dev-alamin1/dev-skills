@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 const CourseCard = (props) => {
     const {id,courseName,totalClass,ratings,instructor,thumbNail} = props.course;
     return (
-        <div className="card md:w-full bg-base-100 shadow-xl hover:shadow-lg">
+        <div className="card md:w-full bg-white shadow-xl hover:shadow-lg">
 
                      <img src={thumbNail? thumbNail :''} alt="course" className='w-full h-44' />
 

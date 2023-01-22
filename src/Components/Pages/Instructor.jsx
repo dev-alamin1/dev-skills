@@ -9,13 +9,13 @@ const Instructor = () => {
             Core Team
           </p>
         </div>
-        <h2 className="text-blue-400 max-w-lg mb-6 font-sans text-3xl font-bold leading-none tracking-tight sm:text-4xl md:mx-auto">
+        <h2 className="text-blue-500 max-w-lg mb-6 font-sans text-3xl font-bold leading-none tracking-tight sm:text-4xl md:mx-auto">
           <span className="relative inline-block">
             <span className="relative ">Welcome</span>
           </span>{' '}
           our talented team of professionals
         </h2>
-        <p className="text-base text-blue-300 md:text-lg">
+        <p className="text-base text-blue-500 md:text-lg">
           Sed ut perspiciatis unde omnis iste natus error sit voluptatem
           accusantium doloremque rem aperiam, eaque ipsa quae.
         </p>

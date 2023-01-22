@@ -230,89 +230,89 @@
 
 
     return (
-        <div className='pb-14 '>
+        <div className='pb-14 bg-white'>
         <div className='flex justify-center border-red-300 px-10'>
            
-           <div className='w-full md:w-6/12'>
-              <div className="card-body md:w-[500px]  md:ml-48 shadow-lg">
+           <div className='w-full md:w-6/12 mt-10'>
+              <div className="card-body md:w-[500px] bg-[#5352ed] rounded-md  md:ml-48 shadow-lg">
 
                 {/* login form start */}
 
                  <form onSubmit={submitHandler}>
                    <div className="form-control">
                        <label className="label">
-                           <span className="label-text">Name</span>
+                           <span className="label-text text-white">Name</span>
                        </label>
-                       <input type="text" onChange={nameHandler} name="name" placeholder="full name" className="input input-bordered" required/>
+                       <input type="text" onChange={nameHandler} name="name" placeholder="full name" className="input input-bordered     text-gray-800 bg-slate-50 " required/>
                        {error.nameError && 
                        <label className="label">
-                                <p className="label-text-alt link text-red-400 link-hover">{error.nameError}</p>
+                                <p className="label-text-alt link text-white link-hover">{error.nameError}</p>
                        </label>}
                    </div>
 
                    <div className="form-control">
                        <label className="label">
-                           <span className="label-text">Image Url</span>
+                           <span className="label-text text-white">Image Url</span>
                        </label>
-                       <input type="text" onChange={imgUrlHandler} name='imgUrl' placeholder="image url" className="input input-bordered" required />
+                       <input type="text" onChange={imgUrlHandler} name='imgUrl' placeholder="image url" className="input input-bordered    text-gray-800 bg-slate-50 " required />
 
                        {error.imgUrlError && 
                        <label className="label">
-                                <p className="label-text-alt link text-red-400 link-hover">{error.imgUrlError}</p>
+                                <p className="label-text-alt link text-white link-hover">{error.imgUrlError}</p>
                        </label>}
 
                    </div>
 
                    <div className="form-control">
                        <label className="label">
-                           <span className="label-text">Email</span>
+                           <span className="label-text text-white">Email</span>
                        </label>
-                       <input onChange={emailHandler} type="text" name='email' placeholder="email" className="input input-bordered" required/>
+                       <input onChange={emailHandler} type="text" name='email' placeholder="email" className="input input-bordered   text-gray-800 bg-slate-50 " required/>
                        {error.emailError && 
                        <label className="label">
-                                <p className="label-text-alt link text-red-400 link-hover">{error.emailError}</p>
+                                <p className="label-text-alt link text-white link-hover">{error.emailError}</p>
                        </label>}
                    </div>
 
                    <div className="form-control">
                        <label className="label">
-                           <span className="label-text">Password</span>
+                           <span className="label-text text-white">Password</span>
                        </label>
 
-                       <input type="password" onChange={passwordHandler} placeholder="password" name='password' className="input input-bordered" required />
+                       <input type="password" onChange={passwordHandler} placeholder="password" name='password' className="input input-bordered  text-gray-800 bg-slate-50 " required />
 
                        {error.passwordError && 
                        <label className="label">
-                                <p className="label-text-alt link text-red-400 link-hover">{error.passwordError}</p>
+                                <p className="label-text-alt link text-white link-hover">{error.passwordError}</p>
                        </label>}
 
                    </div>
 
                    <div className="form-control">
                        <label className="label">
-                           <span className="label-text">Confirm Password</span>
+                           <span className="label-text text-white">Confirm Password</span>
                        </label>
-                       <input type="password" onChange={confirmPasswordHandler} placeholder="confirm password" name='confirmPassword' className="input input-bordered"  required/>
+                       <input type="password" onChange={confirmPasswordHandler} placeholder="confirm password" name='confirmPassword' className="input input-bordered text-gray-800 bg-slate-50 "  required/>
 
                        
                        {error.passwordMatchError && 
                        <label className="label">
-                                <p className="label-text-alt link text-red-400 link-hover">{error.passwordMatchError}</p>
+                                <p className="label-text-alt link text-white link-hover">{error.passwordMatchError}</p>
                        </label>}
 
                        {error.generalError && 
                        <label className="label">
-                                <p className="label-text-alt link text-red-400 font-bold link-hover">{error.generalError}</p>
+                                <p className="label-text-alt link text-white font-bold link-hover">{error.generalError}</p>
                        </label>}
 
                        <label className="label">
-                                <span><small>Already have an account ? <Link to={'/login'} className="text-red-500">Login</Link></small></span>
+                                <span><small className='text-white'>Already have an account ? <Link to={'/login'} className="text-white">Login</Link></small></span>
                             </label>
 
                    </div>
 
                    <div className="form-control mt-3 mb-2">
-                       <button className="btn btn-primary">Register</button>
+                       <button className="btn  btn-warning">Register</button>
                    </div>
                    </form>
                     

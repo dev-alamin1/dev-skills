@@ -14,7 +14,7 @@ const CourseSideNav = () => {
     return (
                // courses left side navbar 
 
-                <div className="card md:w-full  bg-base-100 shadow-xl">
+                <div className="card md:w-full  bg-white text-blue-500 shadow-xl">
                      <div className="card-body">
                        <div className='text-center'>
                           <h2 className="py-2 text-xl">

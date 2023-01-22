@@ -34,8 +34,8 @@ const CourseDetails = () => {
 
     return (
 
-        <div className='py-20 bg-green-200 md:h-[1200px] h-auto'>
-             <h2 className='font-[Poppins] text-center md:text-3xl font-extrabold'> {courseName} <span><div className="badge badge-secondary p-2" onClick={pdfGenerate}>Download Info <AiOutlineDownload/></div></span></h2>
+        <div className='py-20 bg-white md:h-[1200px] h-auto'>
+             <h2 className='font-[Poppins] text-center text-blue-500 md:text-3xl font-extrabold'> {courseName} <span><div className="badge badge-secondary p-2" onClick={pdfGenerate}>Download Info <AiOutlineDownload/></div></span></h2>
               <div className='px-10 md:px-20 flex flex-col md:flex-row gap-20 mt-10'>
 
                   <div className="flex-none md:w-3/12 mb-36">
@@ -51,7 +51,7 @@ const CourseDetails = () => {
                      <div className='flex justify-center'>
                         {/* single Course details card  */}
 
-                         <div className="card  bg-base-100 shadow-xl">
+                         <div className="card  bg-[#5352ed] text-white shadow-xl">
                            <img src={img} alt="course" className='w-full h-96'  />
                            
                               <div className="card-body">
@@ -78,13 +78,13 @@ const CourseDetails = () => {
                                     </div>
 
                                  <div className="card-actions">
-                                  <div className="badge badge-outline text-primary">Totla Lecture : <span className="badge badge-secondary ml-1"> {totalClass}</span> </div> 
+                                  <div className="badge badge-outline ">Totla Lecture : <span className="badge badge-secondary ml-1"> {totalClass}</span> </div> 
                                         <div className="badge badge-outline"><AiFillStar className='mr-1 text-yellow-300'/> {ratings}</div>
                                         <div className="badge badge-outline">Price: ${price}</div>
                                 </div>
 
                                 <div className='flex justify-end'>
-                                    <Link to={`/checkout/course/${id}`}><button className='btn btn-primary'>Get Premium Access</button></Link>
+                                    <Link to={`/checkout/course/${id}`}><button className='btn btn-warning text-white'>Get Premium Access</button></Link>
                                 </div>
                                   
                              </div>
