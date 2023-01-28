@@ -1,11 +1,24 @@
+import { Button } from 'flowbite-react';
 import React, { useContext, useState } from 'react';
 import toast from 'react-hot-toast';
 import { GoMarkGithub } from 'react-icons/go';
 import { ImGoogle3 } from 'react-icons/im';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Context/Authprovider';
+import Lottie from 'react-lottie';
+import LoginAnimation from '../../login.json';
 
 const Login = () => {
+
+
+    const defaultOptions = {
+        loop: true,
+        autoplay: true,
+        animationData: LoginAnimation,
+        rendererSettings: {
+          preserveAspectRatio: "xMidYMid slice"
+        }
+      };
 
     // store location for redirect after login 
      const location = useLocation();
@@ -152,7 +165,11 @@ const Login = () => {
         <div className='py-5 bg-white'>
              <div className='flex justify-center  md:py-10  border-red-300 px-10'>
                 <div className=' hidden  md:h-[500px] md:w-2/5 md:flex md:justify-end'>
-                        <img src="https://i.ibb.co/r4Xbgs0/login.png" alt="" className='h-full' />
+                <Lottie 
+	    options={defaultOptions}
+        height={500}
+        width={500}
+      />
                 </div>
 
                 <div className='w-full md:w-2/5'>
@@ -199,13 +216,17 @@ const Login = () => {
 
                     <div className='flex gap-1'>
 
-                        <div className='w-1/2 bg-slate-400 text-center rounded-md text-white hover:bg-slate-500'>
-                        <button onClick={googleLoginHandler} className='py-2 flex items-center'> <p className='ml-2 md:ml-4'>LogIn with <span className='hidden md:inline-block'>Google</span></p> <ImGoogle3 className='ml-2'/> </button>
+                        <div className='w-1/2'>
+                            <Button onClick={googleLoginHandler} className='w-full' gradientDuoTone="purpleToPink">
+                              <span className=' text-white font-bold'>LogIn With</span> <ImGoogle3 className='text-white text-2xl ml-2'/>
+                            </Button>
                         </div>
-
-                        <div className='w-1/2  bg-slate-400 text-center rounded-md text-white hover:bg-slate-500'>
-                            <button onClick={githubHandler} className='py-2 flex items-center'> <p className='ml-2 md:ml-4'>LogIn with <span className='hidden md:inline-block'>Github</span></p> <GoMarkGithub className='ml-2'/> </button>
+                        <div className='w-1/2'>
+                        <Button onClick={githubHandler} className='w-full' gradientDuoTone="pinkToOrange">
+                              <span className=' text-white font-bold'>LogIn With</span> <GoMarkGithub className='text-white text-2xl ml-2'/>
+                            </Button>
                         </div>
+                    
                         </div>
                     </div>
               </div>

@@ -1,5 +1,6 @@
 import React from 'react';
 
+
 const Instructor = () => {
     return (
         <div className="px-10 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
@@ -9,7 +10,7 @@ const Instructor = () => {
             Core Team
           </p>
         </div>
-        <h2 className="text-blue-500 max-w-lg mb-6 font-sans text-3xl font-bold leading-none tracking-tight sm:text-4xl md:mx-auto">
+        <h2 className="text-blue-500 max-w-lg mb-6 md:text-5xl font-sans text-3xl font-bold leading-none tracking-tight sm:text-4xl md:mx-auto">
           <span className="relative inline-block">
             <span className="relative ">Welcome</span>
           </span>{' '}
@@ -315,6 +316,9 @@ const Instructor = () => {
           </div>
         </div>
       </div>
+      
+      
+
     </div>
     );
 };

@@ -1,10 +1,10 @@
-import React, { useContext } from 'react';
-import { AuthContext } from '../Context/Authprovider';
+import React from 'react';
+
 
 const Footer = () => {
 
     return (
-        <div>
+        <div className='mt-5'>
 
             <footer className="footer p-10 bg-[#2e86de] text-white  px-10 md:px-20">
                 <div>
@@ -34,11 +34,13 @@ const Footer = () => {
                         <span className="label-text text-white">Enter your email address</span>
                     </label> 
                     <div className="relative">
-                        <input type="text" placeholder="username@site.com" className="input input-bordered w-full pr-16" /> 
+                        <input type="text" placeholder="username@site.com" className="input bg-white input-bordered w-full pr-16" /> 
                         <button className="btn btn-primary absolute top-0 right-0 rounded-l-none">Subscribe</button>
                     </div>
                     </div>
                 </div>
+
+                
             </footer>
         </div>
     );
