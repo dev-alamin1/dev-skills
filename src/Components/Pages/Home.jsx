@@ -3,11 +3,14 @@ import { Link } from 'react-router-dom';
 import Instructor from './Instructor';
 import Testimonials from './Testimonials';
 
+
 const Home = () => {
     return (
-        <div className='bg-white'>
+        <div className=''>
+            
              <div className='flex flex-col-reverse md:flex-row gap-2 md:items-center  px-10 md:px-20 py-14'>
 
+                    
                  <div className='md:w-6/12 text-blue-600'>
                         <h2 className='font-[Poppins] md:text-6xl font-extrabold hidden md:block'>Learning Coding is <br/> Easier !</h2>
                         <h2 className='font-[Poppins] text-2xl font-extrabold md:hidden'>Learning Coding is Easier !</h2>
@@ -34,7 +37,7 @@ const Home = () => {
                     <div className=' md:w-2/5  flex items-center justify-center'>
                         <div className='mb-10 md:mb-0'>
                             <h2 className='font-[Poppins] md:text-5xl  font-extrabold mt-5 mb-5 hidden md:block '>Learn New Skills to go <br /> ahead for Your Career</h2>
-                            <h2 className='font-[Poppins] text-2xl font-extrabold md:hidden'>Learn New Skills to go <br /> ahead for Your Career</h2>
+                            <h2 className='font-[Poppins] text-2xl font-extrabold md:hidden'>Learn New Skills to go  ahead for Your Career</h2>
                             <h4 className='mb-2 font-bold'>We can support student forum 24/7 for all students.</h4>
 
                             <p className='mb-4'>Become part of the digital industry with courses in Web Development and Online Marketing. No experience required. Learn everything from scratch in an intensive program</p>

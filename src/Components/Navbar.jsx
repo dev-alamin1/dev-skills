@@ -54,8 +54,8 @@ const Navbar = () => {
                              </ul>
                        </div>
                      <div className='hidden md:flex items-center gap-1'>
-                         <Link to="/" ><img src="https://i.ibb.co/s657Vww/dev-logo.png" alt="" className='w-16 h-10'/></Link>
-                         <Link to="/" className="text-2xl font-bold text-orange-400 font-[Poppins]">Skill</Link>
+                         <Link to="/" className="text-3xl font-bold text-white font-[Lobster] tracking-widest">Skill Hub</Link>
+                         
                     </div>
                </div>
  
