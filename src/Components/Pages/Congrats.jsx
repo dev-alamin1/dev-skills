@@ -1,10 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+
 const Congrats = (props) => {
     const {name} = props.userInfo;
     return (
-        <div className="hero min-h-screen" style={{ backgroundImage: `url("https://www.gifcen.com/wp-content/uploads/2021/05/celebration-gif-19.gif")` }}>
+        <div className="hero h-[100vh]" style={{ backgroundImage: `url("https://i.ibb.co/rbsr8J0/celebration-gif-19.gif")`,backgroundSize:"auto" }}>
            <div className="hero-overlay bg-opacity-60"></div>
               <div className="hero-content text-center text-neutral-content">
             <div className="max-w-md">

@@ -32,7 +32,7 @@ const Courses = () => {
                  
                   {/* Right side  */}
                  <div className="grow">
-                     <div className='grid md:grid-cols-3 gap-5'>
+                     <div className='grid md:grid-cols-3 gap-10'>
 
                         {/* all course cards  */}
 

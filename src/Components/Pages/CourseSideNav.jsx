@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { CourseDataContext } from '../../Layout/Main';
 import CourseList from './CourseList';
+import { motion } from "framer-motion"
 
 const CourseSideNav = () => {
     
@@ -14,7 +15,7 @@ const CourseSideNav = () => {
     return (
                // courses left side navbar 
 
-                <div className="card md:w-full  bg-white text-blue-500 shadow-xl">
+                <motion.div whileHover={{scale:1.1}} className="card md:w-full  bg-white text-blue-500 shadow-xl">
                      <div className="card-body">
                        <div className='text-center'>
                           <h2 className="py-2 text-xl">
@@ -29,7 +30,7 @@ const CourseSideNav = () => {
                              </ul>
                         </div>
                  </div>
-           </div>
+           </motion.div>
     );
 };
 
